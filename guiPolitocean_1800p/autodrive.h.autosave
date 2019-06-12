@@ -1,0 +1,32 @@
+#ifndef AUTODRIVE_H
+#define AUTODRIVE_H
+
+#include "vision.h"
+#include <opencv2/opencv.hpp>
+
+#define MAX_PATH 12
+
+enum class Direction{
+    LEFT,
+    RIGHT,
+    UP,
+    DOWN
+};
+
+class AutoDrive
+{
+public:
+    AutoDrive();
+    AutoDrive(Direction startDirection);
+    Direction updateDirection(Mat frame);
+
+
+private:
+    Direction direction;
+    Direction path[MAX_PATH];
+    Mat grid;
+
+
+};
+
+#endif // AUTODRIVE_H
